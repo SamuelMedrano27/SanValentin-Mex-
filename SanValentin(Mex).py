@@ -10,7 +10,7 @@ def escribir_mex():
     writer.penup()  # Levantar el "lápiz" para no dibujar una línea al moverse
     writer.goto(0, 0)  # Mover la tortuga al centro de la pantalla
     writer.color("white")  # Establecer el color del texto
-    writer.write("MEX", align="center", font=("Courier", 10, "bold"))
+    writer.write("MEX", align="center", font=("Courier", 5, "bold"))
     writer.penup()  # Asegurar que la tortuga no dibuje al moverse después
 
 # Configuración inicial de Turtle para la primera parte
@@ -75,26 +75,42 @@ def dibujar_corazon():
     corazon.forward(179)
     corazon.end_fill()
     corazon.hideturtle()
-
 #PROGRAMEX
+    
+# Función para ajustar la fuente según el tamaño de la ventana
+def ajustar_fuente():
+    ancho_ventana, alto_ventana = wn.window_width(), wn.window_height()
+    # Ajustar el tamaño de la fuente y las posiciones basadas en el tamaño de la ventana
+    if ancho_ventana < 600:  # Considerado como dispositivo móvil
+        tamaño_fuente = 24
+        posición_contador = -30
+        posición_mensaje = -150
+    else:  # Considerado como dispositivo de escritorio
+        tamaño_fuente = 80
+        posición_contador = -10
+        posición_mensaje = -180
+    return tamaño_fuente, posición_contador, posición_mensaje
 # Función para mostrar el contador y el mensaje
 def mostrar_contador_y_mensaje(t):
     preparar_escena()
     dibujar_corazon()
     t.clear()  # Borra el dibujo de Iron Man justo antes de iniciar el contador
 
+    tamaño_fuente, posición_contador, posición_mensaje = ajustar_fuente()
+
     # Mostrar el contador
-    contador.goto(0, -10)
+    contador.goto(0, posición_contador)
     for numero in range(3, -1, -1):
         contador.clear()
-        contador.write(numero, align="center", font=("Courier", 80, "bold"))
+        contador.write(numero, align="center", font=("Courier", tamaño_fuente, "bold"))
         time.sleep(1)
 
     # Mostrar el mensaje final
-    contador.goto(0, -180)
-    contador.write("¡I LOVE YOU!", align="center", font=("Courier", 48, "bold"))
-    time.sleep(1)
+    contador.goto(0, posición_mensaje)
+    contador.write("¡I LOVE YOU!", align="center", font=("Courier", tamaño_fuente//2, "bold"))
+    time.sleep(2)
     contador.clear()
+
 
     # Preparar para el nuevo dibujo
     t.reset()
