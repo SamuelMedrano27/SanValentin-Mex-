@@ -11,7 +11,7 @@ def escribir_mex():
     writer.goto(0, 0)  # Mover la tortuga al centro de la pantalla
     writer.color("white")  # Establecer el color del texto
     #PUEDES CAMBIAR EL NOMBRE A TU GUSTO AQÚI
-    writer.write("MEX-TM", align="center", font=("Courier", 5, "bold"))
+    writer.write("MEX", align="center", font=("Courier", 4, "bold"))
     writer.penup()  # Asegurar que la tortuga no dibuje al moverse después
 
 # Configuración inicial de Turtle para la primera parte
@@ -415,7 +415,7 @@ def draw_shape(some_turtle, radius):
 # Mostrar el mensaje final
 def write_14():
     contador.goto(0,200)
-    contador.write("¡Feliz 14 de Febrero !", align="center", font=("Courier", 30 //2, "bold"))
+    contador.write("¡Feliz 14 de Febrero !", align="center", font=("Courier", 25 //2, "bold"))
     time.sleep(1)
 
 def draw_flower():
